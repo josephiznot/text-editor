@@ -1,0 +1,42 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px black solid;
+}
+
+.window-container,
+textarea {
+  width: 200px;
+  height: 350px;
+  overflow: scroll;
+  border: 2px black solid;
+}
+main {
+  width: calc(100% - 20px);
+  height: calc(100% - 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px black solid;
+}
+.local-host {
+  width: 140px;
+  height: 10px;
+  font-size: 12px;
+  border-bottom: 30px solid grey;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+.local-host div {
+  position: relative;
+  top: 8px;
+}
+.fake-window {
+  border: 1px black solid;
+  width: 100%;
+  height: calc(100% - 30px);
+}
