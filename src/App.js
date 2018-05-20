@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
-  state = { userInput: "", showHTML: false, updateInput: "" };
+  state = {
+    userInput:
+      "<h1>Live Text Editor!</h1><br/><p>Click 'Run' to display the results</p>",
+    showHTML: false,
+    updateInput: ""
+  };
 
   userType = e => {
     this.setState({ [e.target.name]: e.target.value, showHTML: false });
@@ -23,25 +27,38 @@ class App extends Component {
     });
   };
   render() {
+    console.log(window);
     return (
       <div className="App">
         <main>
-          <textarea
-            name="userInput"
-            value={this.state.userInput}
-            onChange={e => this.userType(e)}
-          />
           <div className="window-container">
-            <div className="local-host">
-              <div>Joes cool app</div>
+            <div className="nav-bar">
+              <div className="index-html">
+                <div>index.html</div>
+              </div>
             </div>
-            <div
-              className="fake-window"
-              dangerouslySetInnerHTML={this.createWindow()}
+            <textarea
+              name="userInput"
+              value={this.state.userInput}
+              onChange={e => this.userType(e)}
             />
           </div>
+          <div className="window-container">
+            <div className="nav-bar">
+              <div className="text-editor">
+                <div>Text Editor</div>
+              </div>
+              <div className="url-container">http://localhost:3000/</div>
+            </div>
+            <div className="under-title">
+              <div className="url-container" />
+              <div
+                className="fake-window"
+                dangerouslySetInnerHTML={this.createWindow()}
+              />
+            </div>
+          </div>
         </main>
-
         <button onClick={this.showHTML}>Run code</button>
       </div>
     );
